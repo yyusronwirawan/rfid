@@ -62,7 +62,7 @@
               <li><a class="nav-link" href="{{url('/absensi')}}"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>  <span>Data Absensi</span></a></li>
 
                <li class="menu-header">RFID</li>
-              <li><a class="nav-link" href="{{url('/scan')}}"><i class="fa fa-barcode" aria-hidden="true"></i><span>Scan Rfid</span></a></li>
+              <li><a class="nav-link" href="{{url('/scan')}}"><i class="fa fa-barcode" aria-hidden="true"></i><span>Presensi</span></a></li>
 
              
             </ul>

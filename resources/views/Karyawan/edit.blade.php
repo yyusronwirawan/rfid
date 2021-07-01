@@ -14,7 +14,7 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">No Kartu</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control" readonly disabled name="kartu" autocomplete="off" value="{{$item->no_kartu}}">
+                        <input type="text" class="form-control" readonly disabled name="kartu" autocomplete="off" value="{{$item->uid}}">
                       </div>
                     </div>
 

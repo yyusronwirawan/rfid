@@ -15,7 +15,8 @@ class PagesController extends Controller
     }
 
     public function absensi(){
-    	return view('rekap.index');
+        $absensi = Absensi::all();
+    	return view('rekap.index', compact('absensi'));
     }
 
     public function scan(){
@@ -38,15 +39,19 @@ class PagesController extends Controller
     }
 
     public function reader(){
+        $nama = "";
+        $text_mode = "";
+        $hasil = null;
+        
         $data = RfidTemp::find(1);
         $cek =  RfidTemp::all()->toArray();
         $mode = Mode::first();
         $mode_absen = $mode->mode;
 
-        $text_mode = "";
+
         if($mode_absen == 1){
             $text_mode = "Jam Masuk";
-        }else{
+        }elseif(2){
             $text_mode = "Jam Pulang";
         }
         
@@ -55,13 +60,14 @@ class PagesController extends Controller
             $hasil = 1;
 
         }else{
+            // rfid temporary
             $rfid_masuk = $data->uid;
             // cek rfid apakah sudah terdaftar di tabel karyawan
-            $karyawan = Karyawan::where('no_kartu', $rfid_masuk)->count();
+            $karyawan = Karyawan::where('uid', $rfid_masuk)->count();
             if($karyawan > 0){
 
                 // ambil nama karyawan
-                $data = Karyawan::where('no_kartu', $rfid_masuk)->first();
+                $data = Karyawan::where('uid', $rfid_masuk)->first();
                 $nama = $data->nama;
                 // -----------------------------------
                 date_default_timezone_set('Asia/Jakarta');
@@ -99,11 +105,11 @@ class PagesController extends Controller
         // delete temprfid
 RfidTemp::truncate();
 
-return view('scan.reader', compact('hasil','text_mode'));
+return view('scan.reader', compact('hasil','text_mode','nama'));
 
 }
 
-    // method ari arduino
+// method ari arduino
 public function temp($id){
 
     $delete = RfidTemp::truncate();
@@ -112,6 +118,19 @@ public function temp($id){
         'uid' => $id,
     ]);
 
-    return 'success';
+    return 'Kartu Masuk';
 }
+
+public function mode(){
+    $data = Mode::first();
+    $mode = $data->mode+1;
+    if($mode > 2){
+        $mode = 1;
+    }
+        $update = Mode::where('id',1)->update([
+            'mode' => $mode,
+        ]);
+    return "Mode Berhasil Diubah";
+}
+
 }

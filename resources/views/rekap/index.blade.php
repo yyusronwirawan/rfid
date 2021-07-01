@@ -11,19 +11,22 @@
 					<th>No</th>
 					<th>Kode Rfid</th>
 					<th>Nama Karyawan</th>
+					<th>Tanggal</th>
 					<th>Jam Masuk</th>
 					<th>Jam Pulang</th>
 				</tr>
 			</thead>
 			<tbody>
+				@foreach($absensi as $item)
 				<tr>
-					<td>1</td>
-					<td>0017732</td>
-					<td>Ahmad Rafi Akbar Putra Hamzah</td>
-					<td>26-nov-2020, 07.30:15</td>
-					<td>26-nov-2020, 16.30:15</td>
+					<td>{{$loop->iteration}}</td>
+					<td>{{$item->uid}}</td>
+					<td>{{$item->Karyawan['nama']}}</td>
+					<td>{{$item->tanggal}}</td>
+					<td>{{$item->jam_masuk}}</td>
+					<td>{{$item->jam_pulang}}</td>
 				</tr>
-
+				@endforeach
 			</tbody>
 
 

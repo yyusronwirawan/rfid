@@ -28,7 +28,7 @@
 				@foreach($data as $item)
 				<tr>
 					<td>{{ $loop->iteration }}</td>
-					<td>{{$item->no_kartu}}</td>
+					<td>{{$item->uid}}</td>
 					<td>{{$item->nama}}</td>
 					<td>{{$item->email}}</td>
 					<td>{{$item->jabatan}}</td>

@@ -8,14 +8,14 @@
 @elseif($hasil == 0)
 <center>
 	<h3>Kamu Berhasil Absen Masuk </h3>
-	<h3>Selamat Datang Ahmad Rafi Akbar PH</h3>
+	<h3>Selamat Datang {{$nama}}</h3>
 	<h4>Semoga Harimu Menyenangkan</span>
 
 </center>
 @elseif($hasil == 2)
 <center>
 	<h3>Kamu Berhasil Absen Pulang </h3>
-	<h3>Selamat Jalan Ahmad Rafi Akbar PH</h3>
+	<h3>Selamat Jalan {{$nama}}</h3>
 	<h4>Semoga Selamat Sampai Tujuan</span>
 
 </center>

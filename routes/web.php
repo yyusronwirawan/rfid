@@ -6,7 +6,7 @@ use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\ScanController;
 
 Route::get('/', [PagesController::class, 'dashboard']);
-// MASTER KARYAWAN
+// DATA KARYAWAN
 Route::get('/karyawan', [KaryawanController::class,'index']);
 Route::get('/tambah-karyawan', [KaryawanController::class,'create']);
 Route::get('/edit-karyawan/{id}', [KaryawanController::class,'edit']);
@@ -14,17 +14,21 @@ Route::post('/postkaryawan', [KaryawanController::class,'store']);
 Route::post('/editkaryawan', [KaryawanController::class,'update']);
 Route::get('/hapus-karyawan/{id}', [KaryawanController::class,'destroy']);
 
-// RFID
+// DATA ABSEN 
+Route::get('/absensi', [PagesController::class, 'absensi']);
+
+// PRESENSI
 Route::get('/scan', [PagesController::class,'scan_absen']);
 
-// fungsi realtime
+// FUNGSI REALTIME
 Route::get('/reader', [PagesController::class,'reader']);
 Route::get('/nokartu', [PagesController::class,'nokartu']);
 
 
-// fungsi dari coding arduino
+// FUNGSI GET LINK ARDUINO
 Route::get('/postkartu/{id}', [PagesController::class,'temp']);
+Route::get('/mode', [PagesController::class,'mode']);
 
-Route::get('/absensi', [PagesController::class, 'absensi']);
+
 
 

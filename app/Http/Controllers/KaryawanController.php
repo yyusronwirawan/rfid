@@ -39,7 +39,7 @@ class KaryawanController extends Controller
     public function store(Request $request)
     {
         $karyawan = Karyawan::create([
-            'no_kartu' => $request->input('kartu'),
+            'uid' => $request->input('kartu'),
             'nama' => $request->input('nama'),
             'email' => $request->input('email'),
             'jabatan' => $request->input('jabatan'),

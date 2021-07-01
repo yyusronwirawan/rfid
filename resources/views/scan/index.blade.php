@@ -1,6 +1,6 @@
 @extends('layout.main')
-@section('title', 'Scan RFID')
-@section('judul_halaman', 'RFID')
+@section('title', 'Presensi')
+@section('judul_halaman', 'Presensi')
 @section('isi')
 <script type="text/javascript">
   $(document).ready(function(){
