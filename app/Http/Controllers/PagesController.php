@@ -10,8 +10,11 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function dashboard(){
-
-    	return view('Dashboard.index');
+        date_default_timezone_set('Asia/Jakarta');
+        $karyawan = Karyawan::all()->count();
+        $curdate = date('Y-m-d');
+        $presensi = Absensi::where('tanggal', $curdate)->count();
+    	return view('Dashboard.index', compact('karyawan','presensi'));
     }
 
     public function absensi(){
@@ -33,7 +36,7 @@ class PagesController extends Controller
     }
 
     public function scan_absen(){
-
+        RfidTemp::truncate();
         return view('scan.index');
 
     }
